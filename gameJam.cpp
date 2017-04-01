@@ -146,10 +146,8 @@ void handleEvents(sf::RenderWindow &window, Player *player, int aqui, Enemy *ene
               }
               if ((abs(player->getX() - enemy->getX()) + abs(player->getY() - enemy->getY())) == 1)
               {
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-                {
-                  player->attack(enemy);
-                }
+                  if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::A)
+                    player->attack(enemy);
               }
           }
       }
