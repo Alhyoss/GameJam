@@ -16,9 +16,17 @@ class Enemy : public Character
         Player *player;
 };
 
-class node
+class Node
 {
-    node(int f, int h, int g, int x, int y)
+    Node() {}
+
+    Node(int x, int y)
+    {
+        this->x = x;
+        this->y = y;
+    }
+    
+    Node(int f, int h, int g, int x, int y)
     {
         fCost = f;
         hCost = h;
