@@ -51,8 +51,13 @@ int main()
 
         if(aqui == 0)
         {
-            e->searchPath();
-            e->move();
+            if(e->getMapX() != p->getMapX() || e->getMapY() != p->getMapY())
+                e->tour =0;
+            else
+            {
+                e->searchPath();
+                e->move();
+            }
         }
         window.clear(sf::Color::Black);
         sf::Text joueur;
