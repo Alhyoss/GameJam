@@ -3,6 +3,7 @@
 
 #include "character.hpp"
 #include "world.hpp"
+#include "player.hpp"
 
 class Enemy : public Character
 {

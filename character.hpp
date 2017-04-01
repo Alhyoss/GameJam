@@ -25,6 +25,7 @@ class Character
         int x, y;
         int mapX, mapY;
         World *world;
+        int deffence;
 };
 
 #endif
