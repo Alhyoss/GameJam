@@ -17,15 +17,25 @@ void Case::setStyle(int style)
      {
       std::cout << "ERROR" << std::endl;
       }
+      sf::Texture *skel = new sf::Texture();
+      if(!skel->loadFromFile("skel.png"))
+         {
+          std::cout << "ERROR" << std::endl;
+          }
+        sf::Texture *marb = new sf::Texture();
+        if(!marb->loadFromFile("marb.png"))
+           {
+            std::cout << "ERROR" << std::endl;
+            }
 
     this->style = style;
     this->setTexture(NULL);
     if (style == 0)
-        this->setFillColor(sf::Color::White);
+        this->setTexture(marb, true);
     else if (style==1)
         this->setFillColor(sf::Color::Black);
     else if (style==2)
-        this->setFillColor(sf::Color::Red);
+        this->setTexture(skel, true);
     else if (style==3)
         this->setTexture(imageSource, true);
     else

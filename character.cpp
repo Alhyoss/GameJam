@@ -23,9 +23,11 @@ ran = (rand() % 20) + 1;
 crit = (rand() % 6) + 1;
 dmg = atk - (rand() % 15);
 tour--;
+std::cout << ran << std::endl;
 
 if (ran>=car->deffence)
 {
+  std::cout << ran << std::endl;
   if (ran==20)
   {
     car->setVitality(car->getVitality() - (dmg + crit));
@@ -35,6 +37,7 @@ if (ran>=car->deffence)
   if (car->getVitality()<=0)
     {
       car->alive = false;
+      car->setVitality(0);
       world->world[car->getMapX()][car->getMapY()]->map[car->getX()][car->getY()]->setStyle(0);
     }
 
