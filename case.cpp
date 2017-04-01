@@ -17,8 +17,9 @@ void Case::setStyle(int style)
      {
       std::cout << "ERROR" << std::endl;
       }
-  
+
     this->style = style;
+    this->setTexture(NULL);
     if (style == 0)
         this->setFillColor(sf::Color::White);
     else if (style==1)
