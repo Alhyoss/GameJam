@@ -12,7 +12,17 @@ Enemy::Enemy(World *world, Player *p) : Character(100, world)
     world->world[getMapX()][getMapY()]->map[getX()][getY()]->setStyle(2);
     atk = 16;
     deffence = 12;
-    tour=2;
+    tour=0;
+}
+
+void Enemy::move()
+{
+    Node *n = path[path.size()-1];
+    world->world[getMapX()][getMapY()]->map[getX()][getY()]->setStyle(0);
+    setX(n->x);
+    setY(n->y);
+    world->world[getMapX()][getMapY()]->map[getX()][getY()]->setStyle(2);
+    tour--;
 }
 
 void Enemy::searchPath()

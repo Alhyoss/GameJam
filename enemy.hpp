@@ -36,7 +36,7 @@ class Enemy : public Character
 {
     public:
         Enemy(World *world, Player *p);
-        void move(int x, int y) {}
+        void move();
         void searchPath();
         void backTrace(Node *end);
 

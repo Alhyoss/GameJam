@@ -7,7 +7,6 @@ class Character
 {
     public:
         Character(int vitality, World *world);
-        virtual void move(int x, int y) =0;
         void attack(Character* car);
         int getVitality();
         void setVitality(int v);
@@ -19,7 +18,7 @@ class Character
         int getMapY() { return mapY;}
         void setMapX(int x) { this->mapX = x; }
         void setMapY(int y) { this->mapY = y; }
-        int tour; 
+        int tour;
 
 
     protected:
