@@ -6,7 +6,7 @@ Character::Character(int vitality, World *world, int deffence)
 {
     this->vitality = vitality;
     this->world = world;
-    this->deffence=deffence
+    this->deffence=deffence;
 }
 
 
