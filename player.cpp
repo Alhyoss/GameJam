@@ -15,7 +15,7 @@ Player::Player(World *world) : Character(100, world)
     setY(7);
     world->world[getMapX()][getMapY()]->map[getX()][getY()]->setStyle(3);
     deffence=15;
-  
+    atk = 22;
 }
 
 void Player::move(int x, int y)
