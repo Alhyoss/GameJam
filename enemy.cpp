@@ -1,6 +1,6 @@
 #include "enemy.hpp"
 
-Enemy::Enemy(World *world, Player *p) : Character(10, world)
+Enemy::Enemy(World *world, Player *p) : Character(100, world)
 {
     player = p;
     setMapX(0);
