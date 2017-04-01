@@ -16,7 +16,7 @@ int main()
 
     World* world = new World();
     Player *p = new Player(world);
-    Enemy *e = new Enemy(world);
+    Enemy *e = new Enemy(world, p);
     sf::Font font;
     if (!font.loadFromFile("arial.ttf"))
 	   {

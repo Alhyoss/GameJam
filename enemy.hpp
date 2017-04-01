@@ -7,8 +7,9 @@
 class Enemy : public Character
 {
     public:
-        Enemy(World *world);
+        Enemy(World *world, Player *player);
         void move(int x, int y) {}
+        void serchPath();
 };
 
 #endif
