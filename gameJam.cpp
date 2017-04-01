@@ -1,6 +1,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <ctime>
+#include <cstdlib>
 
 #include "world.hpp"
 #include "player.hpp"

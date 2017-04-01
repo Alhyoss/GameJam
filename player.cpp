@@ -1,14 +1,20 @@
 #include "player.hpp"
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
-Player::Player(World *world) : Character(10, world)
+
+
+
+Player::Player(World *world) : Character(100, world)
 {
     setMapX(0);
     setMapY(0);
     setX(7);
     setY(7);
     world->world[getMapX()][getMapY()]->map[getX()][getY()]->setStyle(3);
+    deffence=15;
 }
 
 void Player::move(int x, int y)
