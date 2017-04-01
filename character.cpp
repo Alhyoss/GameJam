@@ -2,17 +2,14 @@
 
 #include <iostream>
 
-Character::Character(int vitality, World *world, int deffence)
+Character::Character(int vitality, World *world, int deffence, int attack)
 {
     this->vitality = vitality;
     this->world = world;
     this->deffence=deffence
 }
 
-int Character::attack(Character *car)
-{
-    return 1;
-}
+
 
 int Character::getVitality()
 {
