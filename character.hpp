@@ -19,6 +19,7 @@ class Character
         void setMapX(int x) { this->mapX = x; }
         void setMapY(int y) { this->mapY = y; }
         int tour;
+        bool alive;
 
 
     protected:

@@ -9,7 +9,7 @@
 #include "enemy.hpp"
 using namespace std;
 
-void handleEvents(sf::RenderWindow &window, Player *player, int aqui);
+void handleEvents(sf::RenderWindow &window, Player *player, int aqui, Enemy *enemy);
 
 int main()
 {
@@ -47,8 +47,9 @@ int main()
         aqui = 1;
       }
 
-        handleEvents(window, p, aqui);
-
+        handleEvents(window, p, aqui, e);
+        lifejoueur.setSize(sf::Vector2f(p->getVitality(), 10));
+        lifeennemi.setSize(sf::Vector2f(e->getVitality(), 10));
         if(aqui == 0)
         {
             if(e->getMapX() != p->getMapX() || e->getMapY() != p->getMapY())
@@ -82,8 +83,17 @@ int main()
             for(int j=0; j<14; j++)
                 window.draw(*(world->world[p->getMapX()][p->getMapY()]->map[i][j]));
         }
+
+        if (e->alive==false)
+        {
+           
+        }
+
         window.draw(joueur);
-        window.draw(enemie);
+        if (e->alive==true)
+        {
+          window.draw(enemie);
+        }
         window.draw(lifeennemi);
         window.draw(lifejoueur);
 
@@ -97,7 +107,7 @@ int main()
     return 0;
 }
 
-void handleEvents(sf::RenderWindow &window, Player *player, int aqui)
+void handleEvents(sf::RenderWindow &window, Player *player, int aqui, Enemy *enemy)
 {
     sf::Event event;
     while(window.pollEvent(event))
@@ -126,6 +136,13 @@ void handleEvents(sf::RenderWindow &window, Player *player, int aqui)
               {
                   if(player->getY() != 13)
                       player->move(0, 1);
+              }
+              if ((abs(player->getX() - enemy->getX()) + abs(player->getY() - enemy->getY())) == 1)
+              {
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+                {
+                  player->attack(enemy);
+                }
               }
           }
       }

@@ -6,6 +6,7 @@ Character::Character(int vitality, World *world)
 {
     this->vitality = vitality;
     this->world = world;
+    alive = true;
 
 }
 
@@ -31,6 +32,11 @@ if (ran>=car->deffence)
   }else{
     car->setVitality(car->getVitality() - dmg);
   }
+  if (car->getVitality()<=0)
+    {
+      car->alive = false;
+      
+    }
 
 }
 }
