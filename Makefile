@@ -19,6 +19,10 @@ all: gameJam.o
 gameJam.o: gameJam.cpp
 	$(GXX) -c gameJam.cpp -o gameJam.o $(CXXFLAGS)
 
+git:
+	git add *
+	git commit -m "commit"
+
 #Removes temporary files
 clean:
 	rm -rf *.o
