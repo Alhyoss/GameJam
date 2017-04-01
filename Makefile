@@ -20,12 +20,7 @@ gameJam.o: gameJam.cpp
 	$(GXX) -c gameJam.cpp -o gameJam.o $(CXXFLAGS)
 
 case.o: case.cpp
-	$(GXX) -c case.cpp -o case.o $(CXXFLAGS)
-
-git:
-	git add *
-	git commit -m "commit"
-	git push
+	$(GXX) -c case.cpp -o case.o $(CXXFLAGS
 
 #Removes temporary files
 clean:
