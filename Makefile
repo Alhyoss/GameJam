@@ -22,6 +22,7 @@ gameJam.o: gameJam.cpp
 git:
 	git add *
 	git commit -m "commit"
+	git push
 
 #Removes temporary files
 clean:
