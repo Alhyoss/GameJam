@@ -35,7 +35,7 @@ if (ran>=car->deffence)
   if (car->getVitality()<=0)
     {
       car->alive = false;
-      
+      world->world[car->getMapX()][car->getMapY()]->map[car->getX()][car->getY()]->setStyle(0);
     }
 
 }

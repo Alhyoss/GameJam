@@ -34,13 +34,13 @@ int main()
 
     while(window.isOpen())
     {
-      if(p->tour<=0)
+      if(p->tour<=0 && e->alive)
       {
         if(aqui==1)
             e->tour=2;
         aqui = 0;
       }
-      if (e->tour<=0)
+      if (e->tour<=0 && p->alive)
       {
         if(aqui==0)
             p->tour=2;
@@ -54,10 +54,17 @@ int main()
         {
             if(e->getMapX() != p->getMapX() || e->getMapY() != p->getMapY())
                 e->tour =0;
-            else
+            else if(e->alive)
             {
-                e->searchPath();
-                e->move();
+                if((abs(p->getX() - e->getX()) + abs(p->getY() - e->getY())) != 1)
+                {
+                    e->searchPath();
+                    e->move();
+                }
+                else
+                {
+                    e->attack(p);
+                }
             }
         }
         window.clear(sf::Color::Black);
@@ -86,7 +93,7 @@ int main()
 
         if (e->alive==false)
         {
-           
+
         }
 
         window.draw(joueur);
@@ -114,7 +121,7 @@ void handleEvents(sf::RenderWindow &window, Player *player, int aqui, Enemy *ene
     {
         if(event.type == sf::Event::Closed)
             window.close();
-        if (aqui==1)
+        if (aqui==1 && player->alive)
         {
 
               if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
