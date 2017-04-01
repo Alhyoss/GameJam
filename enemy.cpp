@@ -47,11 +47,18 @@ void Enemy::searchPath()
     {
         std::sort(opened.begin(), opened.end(), closerToEnd());
         current = opened[opened.size()-1];
-        std::cout << current->x << ", " << current->y << std::endl;
         if(current->x == player->getX() && current->y == player->getY())
         {
+            for(Node *n : path)
+                delete n;
             path.clear();
             backTrace(current);
+
+            for(int i=0; i<14; i++)
+            {
+                for(int j=0; j<14; j++)
+                    delete map[i][j];
+            }
             break;
         }
         opened.pop_back();
@@ -90,7 +97,8 @@ void Enemy::backTrace(Node *end)
 {
     if(end != NULL)
     {
-        path.push_back(end);
+        Node *e = new Node(end->x, end->y);
+        path.push_back(e);
         backTrace(end->parent);
     }
 }

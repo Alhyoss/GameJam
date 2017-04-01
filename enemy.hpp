@@ -9,9 +9,12 @@
 class Node
 {
     public:
-        Node() {}
+        Node()
+        {
+            parent = NULL;
+        }
 
-        Node(int x, int y)
+        Node(int x, int y) : Node()
         {
             this->x = x;
             this->y = y;
