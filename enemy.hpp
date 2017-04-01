@@ -6,17 +6,6 @@
 #include "player.hpp"
 #include <cmath>
 
-class Enemy : public Character
-{
-    public:
-        Enemy(World *world, Player *p);
-        void move(int x, int y) {}
-        void searchPath();
-
-    private:
-        Player *player;
-};
-
 class Node
 {
     public:
@@ -34,8 +23,23 @@ class Node
             hCost = h;
             gCost = g;
         }
+        Node *parent;
         int x, y;
         int fCost, hCost, gCost;
+        int open;
+};
+
+class Enemy : public Character
+{
+    public:
+        Enemy(World *world, Player *p);
+        void move(int x, int y) {}
+        void searchPath();
+        void backTrace(Node *end);
+
+    private:
+        Player *player;
+        std::vector<Node*> path;
 };
 
 #endif
