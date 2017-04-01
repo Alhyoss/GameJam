@@ -20,11 +20,7 @@ int main()
     Player *p = new Player(world);
     Enemy *e = new Enemy(world, p);
     sf::Font font;
-    if (!font.loadFromFile("arial.ttf"))
-	   {
-    // error...
-	   }
-
+    font.loadFromFile("arial.ttf");
 
      sf::RectangleShape lifejoueur;
      lifejoueur.setSize(sf::Vector2f(p->getVitality(), 10));
@@ -70,6 +66,10 @@ int main()
         window.display();
 
     }
+    delete world;
+    delete p;
+    delete e;
+
     return 0;
 }
 
@@ -101,5 +101,5 @@ void handleEvents(sf::RenderWindow &window, Player *player)
                 player->move(0, 1);
         }
     }
-    
+
 }

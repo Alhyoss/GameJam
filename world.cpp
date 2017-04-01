@@ -39,7 +39,11 @@ Map* World::getcarte(int s)
             for(int j=0; j<14; j++)
                 carte[i][j] = c[i][j];
         }
-        return new Map(carte);
+        Map *m = new Map(carte);
+        for(int i=0; i<14; i++)
+            delete carte[i];
+        delete[] carte;
+        return m;
     }
     else if (s==1)
     {
@@ -65,7 +69,11 @@ Map* World::getcarte(int s)
             for(int j=0; j<14; j++)
                 carte[i][j] = c[i][j];
         }
-        return new Map(carte);
+        Map *m = new Map(carte);
+        for(int i=0; i<14; i++)
+            delete carte[i];
+        delete[] carte;
+        return m;
     }
     else if (s==2)
     {
@@ -91,7 +99,11 @@ Map* World::getcarte(int s)
             for(int j=0; j<14; j++)
                 carte[i][j] = c[i][j];
         }
-        return new Map(carte);
+        Map *m = new Map(carte);
+        for(int i=0; i<14; i++)
+            delete carte[i];
+        delete[] carte;
+        return m;
     }
     else
     {
@@ -117,6 +129,19 @@ Map* World::getcarte(int s)
             for(int j=0; j<14; j++)
                 carte[i][j] = c[i][j];
         }
-        return new Map(carte);
+        Map *m = new Map(carte);
+        for(int i=0; i<14; i++)
+            delete carte[i];
+        delete[] carte;
+        return m;
+    }
+}
+
+World::~World()
+{
+    for (int i=0; i < 4; i++)
+    {
+        for (int j=0; j<4; j++)
+            delete world [i][j];
     }
 }

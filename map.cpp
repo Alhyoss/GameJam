@@ -9,3 +9,12 @@ Map::Map(int **carte)
             map [i][j] = new Case (carte[i][j], i, j);
     }
 }
+
+Map::~Map()
+{
+    for (int i=0; i < 14; i++)
+    {
+        for (int j=0; j<14; j++)
+            delete map [i][j];
+    }
+}

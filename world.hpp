@@ -10,6 +10,7 @@ class World
       Map* world [4][4];
       World();
       Map* getcarte(int s);
+      ~World();
 };
 
 #endif

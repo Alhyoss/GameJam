@@ -8,6 +8,7 @@ class Map
     public:
       Case* map [14][14];
       Map(int **carte);
+      ~Map();
 };
 
 #endif
