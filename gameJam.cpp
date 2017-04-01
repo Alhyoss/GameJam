@@ -33,7 +33,7 @@ int main()
      lifeennemi.setFillColor(sf::Color::Red);
      lifejoueur.setFillColor(sf::Color::Red);
      lifejoueur.setPosition(30, 800);
-     lifeennemi.setPosition(520, 800);
+     lifeennemi.setPosition(540, 800);
 
     while(window.isOpen())
     {
@@ -101,4 +101,5 @@ void handleEvents(sf::RenderWindow &window, Player *player)
                 player->move(0, 1);
         }
     }
+    
 }

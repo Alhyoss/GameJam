@@ -6,7 +6,7 @@ Character::Character(int vitality, World *world)
 {
     this->vitality = vitality;
     this->world = world;
-  
+
 }
 
 
@@ -21,6 +21,7 @@ int ran, dmg, crit;
 ran = (rand() % 20) + 1;
 crit = (rand() % 6) + 1;
 dmg = atk - (rand() % 15);
+tour--;
 
 if (ran>=car->deffence)
 {
