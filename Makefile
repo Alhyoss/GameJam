@@ -10,14 +10,17 @@ CXXFLAGS = -std=c++11 -W -Wall -g
 SFMLFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
 #Creates the executable
-all: gameJam.o
-	$(GXX) gameJam.o -o gameJam $(SFMLFLAGS)
+all: case.o gameJam.o
+	$(GXX) gameJam.o case.o -o gameJam $(SFMLFLAGS)
 	$(MAKE) clean
 	./gameJam
 
 #Builds dependecies
 gameJam.o: gameJam.cpp
 	$(GXX) -c gameJam.cpp -o gameJam.o $(CXXFLAGS)
+
+case.o: case.cpp
+	$(GXX) -c case.cpp -o case.o $(CXXFLAGS)
 
 git:
 	git add *
