@@ -22,13 +22,17 @@ int main()
 	   {
     // error...
 	   }
-     std::vector<sf::RectangleShape*> lifejoueur;
-     for (int i = 0; i < p->getVitality(); i++) {
-       sf::RectangleShape *r =new sf::RectangleShape(sf::Vector2f(10,10));
-       r->setPosition((i+1)*20, 700);
-       r->setFillColor(sf::Color::Red);
-       lifejoueur.push_back(r);
-     }
+
+
+     sf::RectangleShape lifejoueur;
+     lifejoueur.setSize(sf::Vector2f(p->getVitality(), 10));
+     sf::RectangleShape lifeennemi;
+     lifeennemi.setSize(sf::Vector2f(e->getVitality(), 10));
+     lifeennemi.setFillColor(sf::Color::Red);
+     lifejoueur.setFillColor(sf::Color::Red);
+     lifejoueur.setPosition(30, 800);
+     lifeennemi.setPosition(520, 800);
+
     while(window.isOpen())
     {
         handleEvents(window, p);
@@ -58,8 +62,9 @@ int main()
         }
         window.draw(joueur);
         window.draw(enemie);
-        for(sf::RectangleShape* r : lifejoueur)
-          window.draw(*r);
+        window.draw(lifeennemi);
+        window.draw(lifejoueur);
+
         window.display();
 
     }
