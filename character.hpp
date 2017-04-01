@@ -6,9 +6,9 @@
 class Character
 {
     public:
-        Character(int vitality, World *world, int deffence);
+        Character(int vitality, World *world);
         virtual void move(int x, int y) =0;
-
+        void attack(Character* car);
         int getVitality();
         void setVitality(int v);
         int getX() { return x; }
@@ -25,7 +25,7 @@ class Character
         int x, y;
         int mapX, mapY;
         World *world;
-        int deffence;
+        int deffence, atk;
 };
 
 #endif
