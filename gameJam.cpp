@@ -9,7 +9,7 @@
 #include "enemy.hpp"
 using namespace std;
 
-void handleEvents(sf::RenderWindow &window, Player *player);
+void handleEvents(sf::RenderWindow &window, Player *player, int aqui);
 
 int main()
 {
@@ -17,6 +17,7 @@ int main()
                             sf::Style::Titlebar | sf::Style::Close);
 
     World* world = new World();
+    int aqui = 1;
     Player *p = new Player(world);
     Enemy *e = new Enemy(world, p);
     sf::Font font;
@@ -33,7 +34,25 @@ int main()
 
     while(window.isOpen())
     {
-        handleEvents(window, p);
+      if(p->tour<=0)
+      {
+        if(aqui==1)
+          {
+            e->tour=2;
+          }
+        aqui = 0;
+      }
+      if (e->tour<=0)
+      {
+        if(aqui==0)
+          {
+            p->tour=2;
+          }
+        aqui = 1;
+
+      }
+
+        handleEvents(window, p, aqui);
 
         window.clear(sf::Color::Black);
         sf::Text joueur;
@@ -73,33 +92,36 @@ int main()
     return 0;
 }
 
-void handleEvents(sf::RenderWindow &window, Player *player)
+void handleEvents(sf::RenderWindow &window, Player *player, int aqui)
 {
     sf::Event event;
     while(window.pollEvent(event))
     {
         if(event.type == sf::Event::Closed)
             window.close();
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        if (aqui==1)
         {
-            if(player->getX() != 0)
-                player->move(-1, 0);
-        }
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        {
-            if(player->getX() != 13)
-                player->move(1, 0);
-        }
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        {
-            if(player->getY() != 0)
-                player->move(0, -1);
-        }
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        {
-            if(player->getY() != 13)
-                player->move(0, 1);
-        }
-    }
 
+              if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+              {
+                  if(player->getX() != 0)
+                      player->move(-1, 0);
+              }
+              else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+              {
+                  if(player->getX() != 13)
+                      player->move(1, 0);
+              }
+              else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+              {
+                  if(player->getY() != 0)
+                      player->move(0, -1);
+              }
+              else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+              {
+                  if(player->getY() != 13)
+                      player->move(0, 1);
+              }
+          }
+      }
 }
