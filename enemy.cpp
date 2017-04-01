@@ -20,9 +20,14 @@ void Enemy::searchPath()
         for(int j=0; j<14; j++)
         {
             map[i][j] = new Node(i, j);
-            if(world->world[getMapX()][getMapY()]->map[getX()][getY()]->getStyle()==1
-                || world->world[getMapX()][getMapY()]->map[getX()][getY()]->getStyle()==2)
+            if(world->world[getMapX()][getMapY()]->map[getX()][getY()]->style==1
+                || world->world[getMapX()][getMapY()]->map[getX()][getY()]->style==2)
                 closed.push_back(map[i][j]);
         }
     }
+    Node *current = map[getX()][getY()];
+    current->gCost = 0;
+    current->hCost = abs(getX()-player->getX())+abs(getY()-player->getY());
+    current->fCost = current->gCost + current->hCost;
+    opened.push_back(current);
 }

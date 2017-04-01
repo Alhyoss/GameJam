@@ -4,6 +4,7 @@
 #include "character.hpp"
 #include "world.hpp"
 #include "player.hpp"
+#include <cmath>
 
 class Enemy : public Character
 {
@@ -18,22 +19,23 @@ class Enemy : public Character
 
 class Node
 {
-    Node() {}
+    public:
+        Node() {}
 
-    Node(int x, int y)
-    {
-        this->x = x;
-        this->y = y;
-    }
-    
-    Node(int f, int h, int g, int x, int y)
-    {
-        fCost = f;
-        hCost = h;
-        gCost = g;
-    }
-    int x, Y;
-    int fCost, hCost, gCost;
+        Node(int x, int y)
+        {
+            this->x = x;
+            this->y = y;
+        }
+
+        Node(int f, int h, int g, int x, int y) : Node(x, y)
+        {
+            fCost = f;
+            hCost = h;
+            gCost = g;
+        }
+        int x, y;
+        int fCost, hCost, gCost;
 };
 
 #endif
