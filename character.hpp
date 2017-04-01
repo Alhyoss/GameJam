@@ -19,6 +19,8 @@ class Character
         int getMapY() { return mapY;}
         void setMapX(int x) { this->mapX = x; }
         void setMapY(int y) { this->mapY = y; }
+        int tour; 
+
 
     protected:
         int vitality;
@@ -26,6 +28,8 @@ class Character
         int mapX, mapY;
         World *world;
         int deffence, atk;
+
+
 };
 
 #endif
