@@ -39,6 +39,7 @@ enemy.o: enemy.cpp
 	$(GXX) -c enemy.cpp -o enemy.o $(CXXFLAGS)
 
 git:
+	rm -f gameJam
 	git add *
 	git commit -m "commit"
 	git push
