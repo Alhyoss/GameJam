@@ -37,23 +37,23 @@ int main()
       if(p->tour<=0)
       {
         if(aqui==1)
-          {
             e->tour=2;
-          }
         aqui = 0;
       }
       if (e->tour<=0)
       {
         if(aqui==0)
-          {
             p->tour=2;
-          }
         aqui = 1;
-
       }
 
         handleEvents(window, p, aqui);
 
+        if(aqui == 0)
+        {
+            e->searchPath();
+            e->move();
+        }
         window.clear(sf::Color::Black);
         sf::Text joueur;
         string J;

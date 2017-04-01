@@ -17,11 +17,17 @@ Enemy::Enemy(World *world, Player *p) : Character(100, world)
 
 void Enemy::move()
 {
+    if(path.size()==1)
+    {
+        tour--;
+        return;
+    }
     Node *n = path[path.size()-1];
+    path.pop_back();
     world->world[getMapX()][getMapY()]->map[getX()][getY()]->setStyle(0);
     setX(n->x);
     setY(n->y);
-    world->world[getMapX()][getMapY()]->map[getX()][getY()]->setStyle(2);
+    world->world[getMapX()][getMapY()]->map[n->x][n->y]->setStyle(2);
     tour--;
 }
 
@@ -108,7 +114,7 @@ void Enemy::searchPath()
 
 void Enemy::backTrace(Node *end)
 {
-    if(end != NULL)
+    if(end->parent != NULL)
     {
         Node *e = new Node(end->x, end->y);
         path.push_back(e);
