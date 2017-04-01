@@ -6,7 +6,7 @@
 class Character
 {
     public:
-        Character(int vitality, World *world);
+        Character(int vitality, World *world, int deffence);
         virtual void move(int x, int y) =0;
         int attack(Character *car);
         int getVitality();
