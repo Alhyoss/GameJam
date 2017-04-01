@@ -1,4 +1,5 @@
 #include "case.hpp"
+#include <iostream>
 
 Case::Case(int style, int x, int y)
 {
@@ -11,6 +12,12 @@ Case::Case(int style, int x, int y)
 
 void Case::setStyle(int style)
 {
+  sf::Texture *imageSource = new sf::Texture();
+  if(!imageSource->loadFromFile("sprite.png"))
+     {
+      std::cout << "ERROR" << std::endl;
+      }
+  
     this->style = style;
     if (style == 0)
         this->setFillColor(sf::Color::White);
@@ -19,7 +26,7 @@ void Case::setStyle(int style)
     else if (style==2)
         this->setFillColor(sf::Color::Red);
     else if (style==3)
-        this->setFillColor(sf::Color::Green);
+        this->setTexture(imageSource, true);
     else
         this->setFillColor(sf::Color::Blue);
 }
