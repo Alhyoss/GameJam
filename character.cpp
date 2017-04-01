@@ -23,11 +23,9 @@ ran = (rand() % 20) + 1;
 crit = (rand() % 6) + 1;
 dmg = atk - (rand() % 15);
 tour--;
-std::cout << ran << std::endl;
 
 if (ran>=car->deffence)
 {
-  std::cout << ran << std::endl;
   if (ran==20)
   {
     car->setVitality(car->getVitality() - (dmg + crit));
