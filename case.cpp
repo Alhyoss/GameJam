@@ -31,7 +31,7 @@ void Case::setStyle(int style)
     this->style = style;
     this->setTexture(NULL);
     if (style == 0)
-        this->setTexture(marb, true);
+        this->setFillColor(sf::Color::White);
     else if (style==1)
         this->setFillColor(sf::Color::Black);
     else if (style==2)
