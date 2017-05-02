@@ -7,6 +7,7 @@ class Case : public sf::RectangleShape
 {
     public:
       int style;
+      
 
       Case(int style, int x, int y);
 

@@ -19,7 +19,7 @@ void initGame(World **world, Player **p, Enemy **e, int *aqui);
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1360,768), "GameJam",
+    sf::RenderWindow window(sf::VideoMode(1360, 768), "GameJam",
                             sf::Style::Titlebar | sf::Style::Close | sf::Style::Fullscreen);
 
     MainMenu *menu = new MainMenu(window);

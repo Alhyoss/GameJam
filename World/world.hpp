@@ -7,6 +7,7 @@
 class World
 {
     public:
+      
       Map* world [4][4];
       World();
       Map* getcarte(int s);

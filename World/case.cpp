@@ -3,11 +3,10 @@
 
 Case::Case(int style, int x, int y)
 {
-    //int a;
-    //int b;
-    //a= heig14;
+  
+
     setStyle(style);
-    setPosition(sf::Vector2f((x*50) + 296, y*50));
+    setPosition(sf::Vector2f((x*54) + 296, y*54));
     setSize(sf::Vector2f(54-2, 54-2));
     setOutlineColor(sf::Color::Black);
     setOutlineThickness(2);
