@@ -98,7 +98,7 @@ int main()
                 e->tour =0;
             else if(e->alive)
             {
-                usleep(500000);
+                usleep(100000);
                 if((abs(p->getX() - e->getX()) + abs(p->getY() - e->getY())) != 1)
                 {
                     e->searchPath();
