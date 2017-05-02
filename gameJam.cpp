@@ -20,7 +20,7 @@ void initGame(World **world, Player **p, Enemy **e, int *aqui);
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(700, 850), "GameJam",
-                            sf::Style::Titlebar | sf::Style::Close);
+                            sf::Style::Titlebar | sf::Style::Close | sf::Style::Fullscreen);
 
     MainMenu *menu = new MainMenu(window);
     unsigned gameState = menu->showMenu();
@@ -121,12 +121,21 @@ int main()
             for(int j=0; j<14; j++)
                 window.draw(*(world->world[p->getMapX()][p->getMapY()]->map[i][j]));
         }
-
-        window.draw(joueur);
-        if (e->alive==true)
+        if(e->alive == false || p->alive == false)
         {
-          window.draw(enemie);
+            menu->setGame(false);
+            gameState = menu->showMenu();
+            if(gameState == PLAY)
+            {
+                initGame(&world, &p, &e, &aqui);
+                gameState = RESUME;
+                continue;
+            }
         }
+
+        if (e->alive==true)
+            window.draw(enemie);
+        window.draw(joueur);
         window.draw(lifeennemi);
         window.draw(lifejoueur);
 
