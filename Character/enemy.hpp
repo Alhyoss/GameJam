@@ -2,7 +2,7 @@
 #define _ENNEMI_HPP_ 1
 
 #include "character.hpp"
-#include "world.hpp"
+#include "../World/world.hpp"
 #include "player.hpp"
 #include <cmath>
 

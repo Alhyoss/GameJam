@@ -2,7 +2,7 @@
 #define _PLAYER_HPP_ 1
 
 #include "character.hpp"
-#include "world.hpp"
+#include "../World/world.hpp"
 
 class Player : public Character
 {

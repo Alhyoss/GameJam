@@ -1,7 +1,7 @@
 #ifndef _CHARACTER_HPP_
 #define _CHARACTER_HPP_ 1
 
-#include "world.hpp"
+#include "../World/world.hpp"
 
 class Character
 {

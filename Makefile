@@ -10,8 +10,8 @@ CXXFLAGS = -std=c++11 -W -Wall -g
 SFMLFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
 #Creates the executable
-all: character.o enemy.o player.o case.o map.o world.o gameJam.o
-	$(GXX) character.o enemy.o player.o gameJam.o world.o map.o case.o -o gameJam $(SFMLFLAGS)
+all: character.o enemy.o player.o case.o map.o world.o menu.o gameJam.o
+	$(GXX) character.o enemy.o player.o menu.o gameJam.o world.o map.o case.o -o gameJam $(SFMLFLAGS)
 	$(MAKE) clean
 	./gameJam
 
@@ -19,24 +19,26 @@ all: character.o enemy.o player.o case.o map.o world.o gameJam.o
 gameJam.o: gameJam.cpp
 	$(GXX) -c gameJam.cpp -o gameJam.o $(CXXFLAGS)
 
-case.o: case.cpp
-	$(GXX) -c case.cpp -o case.o $(CXXFLAGS)
+menu.o: Menu/mainmenu.cpp
+	$(GXX) -c Menu/mainmenu.cpp -o menu.o $(CXXFLAGS)
 
-map.o: map.cpp
-	$(GXX) -c map.cpp -o map.o $(CXXFLAGS)
+case.o: World/case.cpp
+	$(GXX) -c World/case.cpp -o case.o $(CXXFLAGS)
 
-world.o: world.cpp
-	$(GXX) -c world.cpp -o world.o $(CXXFLAGS)
+map.o: World/map.cpp
+	$(GXX) -c World/map.cpp -o map.o $(CXXFLAGS)
 
+world.o: World/world.cpp
+	$(GXX) -c World/world.cpp -o world.o $(CXXFLAGS)
 
-character.o: character.cpp
-	$(GXX) -c character.cpp -o character.o $(CXXFLAGS)
+character.o: Character/character.cpp
+	$(GXX) -c Character/character.cpp -o character.o $(CXXFLAGS)
 
-player.o: player.cpp
-	$(GXX) -c player.cpp -o player.o $(CXXFLAGS)
+player.o: Character/player.cpp
+	$(GXX) -c Character/player.cpp -o player.o $(CXXFLAGS)
 
-enemy.o: enemy.cpp
-	$(GXX) -c enemy.cpp -o enemy.o $(CXXFLAGS)
+enemy.o: Character/enemy.cpp
+	$(GXX) -c Character/enemy.cpp -o enemy.o $(CXXFLAGS)
 
 git:
 	rm -f gameJam

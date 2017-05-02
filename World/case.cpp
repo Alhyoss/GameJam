@@ -12,21 +12,15 @@ Case::Case(int style, int x, int y)
 
 void Case::setStyle(int style)
 {
-  sf::Texture *imageSource = new sf::Texture();
-  if(!imageSource->loadFromFile("sprite.png"))
-     {
-      std::cout << "ERROR" << std::endl;
-      }
-      sf::Texture *skel = new sf::Texture();
-      if(!skel->loadFromFile("skel.png"))
-         {
-          std::cout << "ERROR" << std::endl;
-          }
-        sf::Texture *marb = new sf::Texture();
-        if(!marb->loadFromFile("marb.png"))
-           {
-            std::cout << "ERROR" << std::endl;
-            }
+    sf::Texture *imageSource = new sf::Texture();
+    if(!imageSource->loadFromFile("Img/sprite.png"))
+        std::cout << "ERROR" << std::endl;
+    sf::Texture *skel = new sf::Texture();
+    if(!skel->loadFromFile("Img/skel.png"))
+        std::cout << "ERROR" << std::endl;
+    sf::Texture *marb = new sf::Texture();
+    if(!marb->loadFromFile("Img/marb.png"))
+        std::cout << "ERROR" << std::endl;
 
     this->style = style;
     this->setTexture(NULL);
