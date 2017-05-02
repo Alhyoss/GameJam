@@ -86,6 +86,7 @@ int main()
         handleEvents(window, p, aqui, e, menu, &gameState);
         if(gameState == PLAY)
         {
+            menu->setGame(true);
             initGame(&world, &p, &e, &aqui);
             gameState = RESUME;
         }
@@ -105,9 +106,7 @@ int main()
                     e->move();
                 }
                 else
-                {
                     e->attack(p);
-                }
             }
         }
         window.clear(sf::Color::Black);
@@ -121,12 +120,14 @@ int main()
             for(int j=0; j<14; j++)
                 window.draw(*(world->world[p->getMapX()][p->getMapY()]->map[i][j]));
         }
+
         if(e->alive == false || p->alive == false)
         {
             menu->setGame(false);
             gameState = menu->showMenu();
             if(gameState == PLAY)
             {
+                menu->setGame(true);
                 initGame(&world, &p, &e, &aqui);
                 gameState = RESUME;
                 continue;
@@ -197,11 +198,11 @@ void handleEvents(sf::RenderWindow &window, Player *player, int aqui, Enemy *ene
 void initGame(World **world, Player **p, Enemy **e, int *aqui)
 {
     if(*world != NULL)
-        delete world;
+        delete *world;
     if(*p != NULL)
-        delete p;
+        delete *p;
     if(*e != NULL)
-        delete e;
+        delete *e;
     *world = new World();
     *p = new Player(*world);
     *e = new Enemy(*world, *p);
