@@ -1,20 +1,16 @@
 #include "case.hpp"
 #include <iostream>
 
-Case::Case(int style, int x, int y)
+Case::Case(int style, int x, int y, int height, int width)
 {
+    this->windowHeight = height;
+    this->windowWidth = width;
+
     setStyle(style);
     setPosition(sf::Vector2f((x*54) + 296, y*54));
     setSize(sf::Vector2f(54-2, 54-2));
     setOutlineColor(sf::Color::Black);
     setOutlineThickness(2);
-}
-
-
-Case::Case(int style, int x, int y, int height, int width) : Case(style, x, y)
-{
-    this->windowHeight = height;
-    this->windowWidth = width;
 }
 
 void Case::setStyle(int style)
