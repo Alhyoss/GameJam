@@ -13,13 +13,21 @@ World::World()
     }
 }
 
+World::World(int height, int width) : World()
+{
+    this->windowHeight = height;
+    this->windowWidth = width;
+}
+
 Map* World::getcarte(int s)
 {
+    int **carte = new int*[14];
+    for(int i=0; i<14; i++)
+        carte[i] = new int[14];
+
+    Map *m;
     if (s==0)
     {
-        int **carte = new int*[14];
-        for(int i=0; i<14; i++)
-            carte[i] = new int[14];
         int c[14][14] = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -39,17 +47,10 @@ Map* World::getcarte(int s)
             for(int j=0; j<14; j++)
                 carte[i][j] = c[i][j];
         }
-        Map *m = new Map(carte);
-        for(int i=0; i<14; i++)
-            delete carte[i];
-        delete[] carte;
-        return m;
+        m = new Map(carte, windowHeight, windowWidth);
     }
     else if (s==1)
     {
-        int **carte = new int*[14];
-        for(int i=0; i<14; i++)
-            carte[i] = new int[14];
         int c[14][14] = {{1,1,1,1,1,1,6,1,1,1,1,1,1,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -69,17 +70,10 @@ Map* World::getcarte(int s)
             for(int j=0; j<14; j++)
                 carte[i][j] = c[i][j];
         }
-        Map *m = new Map(carte);
-        for(int i=0; i<14; i++)
-            delete carte[i];
-        delete[] carte;
-        return m;
+        m = new Map(carte, windowHeight, windowWidth);
     }
     else if (s==2)
     {
-        int **carte = new int*[14];
-        for(int i=0; i<14; i++)
-            carte[i] = new int[14];
         int c[14][14] = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -99,17 +93,10 @@ Map* World::getcarte(int s)
             for(int j=0; j<14; j++)
                 carte[i][j] = c[i][j];
         }
-        Map *m = new Map(carte);
-        for(int i=0; i<14; i++)
-            delete carte[i];
-        delete[] carte;
-        return m;
+        m = new Map(carte, windowHeight, windowWidth);
     }
     else
     {
-        int **carte = new int*[14];
-        for(int i=0; i<14; i++)
-            carte[i] = new int[14];
         int c[14][14] = {{1,1,1,1,1,1,6,1,1,1,1,1,1,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -129,12 +116,12 @@ Map* World::getcarte(int s)
             for(int j=0; j<14; j++)
                 carte[i][j] = c[i][j];
         }
-        Map *m = new Map(carte);
-        for(int i=0; i<14; i++)
-            delete carte[i];
-        delete[] carte;
-        return m;
+        m = new Map(carte, windowHeight, windowWidth);
     }
+    for(int i=0; i<14; i++)
+        delete carte[i];
+    delete[] carte;
+    return m;
 }
 
 World::~World()

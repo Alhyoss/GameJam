@@ -6,9 +6,8 @@
 class Map
 {
     public:
-      
       Case* map [14][14];
-      Map(int **carte);
+      Map(int **carte, int height, int width);
       ~Map();
 };
 

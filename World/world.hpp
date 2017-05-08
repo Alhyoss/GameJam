@@ -7,11 +7,18 @@
 class World
 {
     public:
-      
-      Map* world [4][4];
-      World();
-      Map* getcarte(int s);
-      ~World();
+        World();
+        World(int height, int width);
+        ~World();
+
+    private:
+        Map* getcarte(int s);
+
+    public:
+        Map* world [4][4];
+
+    private:
+        int windowHeight = 0, windowWidth = 0;
 };
 
 #endif
