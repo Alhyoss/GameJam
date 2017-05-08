@@ -42,6 +42,9 @@ int main()
 
     initGame(&world, &p, &e, &aqui, mode.height, mode.width);
 
+    int height= mode.height;
+    int width= mode.width;
+
     sf::Font font;
     font.loadFromFile("Img/arial.ttf");
 
@@ -60,7 +63,7 @@ int main()
     enemie.setFont(font);
     enemie.setCharacterSize(24);
     enemie.setColor(sf::Color::White);
-    enemie.setPosition(1150, 70);
+    enemie.setPosition(width-250, 70);
     sf::RectangleShape lifejoueur;
     lifejoueur.setSize(sf::Vector2f(p->getVitality(), 10));
     sf::RectangleShape lifeennemi;
@@ -68,7 +71,7 @@ int main()
     lifeennemi.setFillColor(sf::Color::Red);
     lifejoueur.setFillColor(sf::Color::Red);
     lifejoueur.setPosition(30, 110);
-    lifeennemi.setPosition(1140, 110);
+    lifeennemi.setPosition(width - 260, 110);
 
     while(window.isOpen())
     {

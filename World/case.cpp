@@ -5,10 +5,13 @@ Case::Case(int style, int x, int y, int height, int width)
 {
     this->windowHeight = height;
     this->windowWidth = width;
+    int a, b;
+    b = windowHeight/14;
+    a = (windowWidth - windowHeight)/2;
 
     setStyle(style);
-    setPosition(sf::Vector2f((x*54) + 296, y*54));
-    setSize(sf::Vector2f(54-2, 54-2));
+    setPosition(sf::Vector2f((x*b) + a, y*b));
+    setSize(sf::Vector2f(b-2, b-2));
     setOutlineColor(sf::Color::Black);
     setOutlineThickness(2);
 }
