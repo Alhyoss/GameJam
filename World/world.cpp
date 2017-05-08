@@ -1,7 +1,12 @@
 #include "world.hpp"
 
-World::World()
+#include <iostream>
+
+World::World(int height, int width)
 {
+    this->windowHeight = height;
+    this->windowWidth = width;
+
     int worldpat [4][4] = {{0,1,0,0},
                            {2,3,0,0},
                            {0,0,0,0},
@@ -11,12 +16,6 @@ World::World()
         for (int j=0; j<4; j++)
             world [i][j] = getcarte(worldpat[i][j]);
     }
-}
-
-World::World(int height, int width) : World()
-{
-    this->windowHeight = height;
-    this->windowWidth = width;
 }
 
 Map* World::getcarte(int s)

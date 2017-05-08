@@ -7,7 +7,6 @@
 class World
 {
     public:
-        World();
         World(int height, int width);
         ~World();
 
@@ -18,7 +17,7 @@ class World
         Map* world [4][4];
 
     private:
-        int windowHeight = 0, windowWidth = 0;
+        int windowHeight, windowWidth;
 };
 
 #endif
