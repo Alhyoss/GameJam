@@ -42,7 +42,7 @@ int main()
 
     initGame(&world, &p, &e, &aqui, mode.height, mode.width);
 
-    int height= mode.height;
+    //int height= mode.height;
     int width= mode.width;
 
     sf::Font font;
