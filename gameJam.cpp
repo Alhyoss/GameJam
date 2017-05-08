@@ -15,7 +15,7 @@ using namespace std;
 void handleEvents(sf::RenderWindow &window, Player *player, int aqui, Enemy *enemy,
                   MainMenu *menu, unsigned *gameState);
 
-void initGame(World **world, Player **p, Enemy **e, int *aqui);
+void initGame(World **world, Player **p, Enemy **e, int *aqui, int height, int width);
 
 int main()
 {
@@ -24,6 +24,8 @@ int main()
 
     MainMenu *menu = new MainMenu(window);
     unsigned gameState = menu->showMenu();
+
+    sf::VideoMode mode = sf::VideoMode::getDesktopMode();
 
     if(gameState == PLAY)
     {
@@ -38,7 +40,7 @@ int main()
     Player *p = NULL;
     Enemy *e = NULL;
 
-    initGame(&world, &p, &e, &aqui);
+    initGame(&world, &p, &e, &aqui, mode.height, mode.width);
 
     sf::Font font;
     font.loadFromFile("Img/arial.ttf");
@@ -87,7 +89,7 @@ int main()
         if(gameState == PLAY)
         {
             menu->setGame(true);
-            initGame(&world, &p, &e, &aqui);
+            initGame(&world, &p, &e, &aqui, mode.height, mode.width);
             gameState = RESUME;
         }
 
@@ -128,7 +130,7 @@ int main()
             if(gameState == PLAY)
             {
                 menu->setGame(true);
-                initGame(&world, &p, &e, &aqui);
+                initGame(&world, &p, &e, &aqui, mode.height, mode.width);
                 gameState = RESUME;
                 continue;
             }
@@ -196,7 +198,7 @@ void handleEvents(sf::RenderWindow &window, Player *player, int aqui, Enemy *ene
     }
 }
 
-void initGame(World **world, Player **p, Enemy **e, int *aqui)
+void initGame(World **world, Player **p, Enemy **e, int *aqui, int height, int width)
 {
     if(*world != NULL)
         delete *world;
@@ -204,7 +206,7 @@ void initGame(World **world, Player **p, Enemy **e, int *aqui)
         delete *p;
     if(*e != NULL)
         delete *e;
-    *world = new World();
+    *world = new World(height, width);
     *p = new Player(*world);
     *e = new Enemy(*world, *p);
     *aqui = 1;
