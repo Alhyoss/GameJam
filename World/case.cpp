@@ -35,6 +35,8 @@ void Case::setStyle(int style)
         this->setTexture(skel, true);
     else if (style==3)
         this->setTexture(sprite, true);
+    else if (style==8)
+        this->setFillColor(sf::Color::Green);
     else
         this->setFillColor(sf::Color::Blue);
 }
