@@ -145,6 +145,11 @@ int main()
         window.draw(lifeennemi);
         window.draw(lifejoueur);
 
+        if(world->world[p->getMapX()][p->getMapY()]->map[p->getX()][p->getY()]->style == 8)
+        {
+          cout << "win" << endl;
+        }
+
         window.display();
 
 

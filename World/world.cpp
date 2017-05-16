@@ -10,7 +10,7 @@ World::World(int height, int width)
     //int lar;
     //lar =(rand() % 4) + 2;
 
-    int worldpat [4][4]; /*= {{0,7,7,1},
+    int worldpat [4][4]; /* = {{0,7,7,1},
                           {5,4,4,6},
                           {5,4,4,6},
                           {2,8,8,3}};*/
@@ -29,11 +29,12 @@ World::World(int height, int width)
     worldpat [1][0] = 5;
     worldpat [2][0] = 5;
 
-    for (int i=1; i < 4; i++)
+    for (int i=1; i < 3; i++)
     {
-        for (int j=1; j<4; j++)
+        for (int j=1; j < 3; j++)
       {
-        int a=(rand() % 11);
+        worldpat [i][j] = 4;
+        /*int a=(rand() % 11);
         if (worldpat[i-1][j] == 0 && worldpat[i][j-1] == 0 && a==4)
         {
           worldpat [i][j] = a;
@@ -43,7 +44,7 @@ World::World(int height, int width)
         }else if (worldpat[i-1][j] == 0 && worldpat[i][j-1] == 0 && a==8)
         {
           worldpat [i][j] = a;
-        }
+        }*/
 
     }
 }
@@ -67,7 +68,7 @@ Map* World::getcarte(int s)
     if (s==0)
     {
         int c[14][14] = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-                         {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                         {1,0,0,0,0,0,0,0,0,0,0,0,8,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
                          {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
